@@ -51,7 +51,6 @@ def upload_to_s3(file_path: str, bucket_name: str, s3_prefix: str = "") -> bool:
             file_path,
             bucket_name,
             s3_key,
-            Callback=lambda bytes_transferred: None,
         )
         show_notification(f"✓ Uploaded: {file_name}")
         return True
