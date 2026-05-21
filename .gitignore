@@ -1,0 +1,6 @@
+# Environment
+.env
+.venv
+
+# Personal
+my_script.sh
