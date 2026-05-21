@@ -70,7 +70,6 @@ def main() -> None:
     files: list[str] = sys.argv[1:]
 
     if not files:
-        print("No files selected")
         show_notification("No files selected for upload", "S3 Upload Error", "critical")
         return
 
@@ -80,6 +79,8 @@ def main() -> None:
         if os.path.exists(file_path):
             if upload_to_s3(file_path, S3_BUCKET_NAME, S3_PREFIX):
                 success_count += 1
+            else:
+                error_count += 1
         else:
             error_count += 1
             error_msg: str = f"File not found: {file_path}"
